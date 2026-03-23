@@ -26,13 +26,12 @@ class Settings(BaseSettings):
     """
     
     # ======================= LLM 相关 =======================
-    QUERY_ENGINE_API_KEY: str = Field(..., description="Query Engine LLM API密钥，用于主LLM。您可以更改每个部分LLM使用的API，🚩只要兼容OpenAI请求格式都可以，定义好KEY、BASE_URL与MODEL_NAME即可正常使用。")
-    QUERY_ENGINE_BASE_URL: Optional[str] = Field(None, description="Query Engine LLM接口BaseUrl，可自定义厂商API")
-    QUERY_ENGINE_MODEL_NAME: str = Field(..., description="Query Engine LLM模型名称")
-    QUERY_ENGINE_PROVIDER: Optional[str] = Field(None, description="Query Engine LLM提供商（兼容字段）")
+    QUERY_ENGINE_API_KEY: Optional[str] = Field("sk-a30d9ed6ab4545889655de0d0dccf529", description="Query Agent（推荐 deepseek，官方申请地址：https://platform.deepseek.com/）API 密钥")
+    QUERY_ENGINE_BASE_URL: Optional[str] = Field("https://api.deepseek.com", description="Query Agent LLM BaseUrl")
+    QUERY_ENGINE_MODEL_NAME: str = Field("deepseek-reasoner", description="Query Agent LLM 模型名称，如 deepseek-reasoner")
     
     # ================== 网络工具配置 ====================
-    TAVILY_API_KEY: str = Field(..., description="Tavily API（申请地址：https://www.tavily.com/）API密钥，用于Tavily网络搜索")
+    TAVILY_API_KEY: str = Field("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", description="Tavily API（申请地址：https://www.tavily.com/）API密钥，用于Tavily网络搜索")
     
     # ================== 搜索参数配置 ====================
     SEARCH_TIMEOUT: int = Field(240, description="搜索超时（秒）")

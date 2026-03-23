@@ -39,7 +39,7 @@ class DeepSearchAgent:
         self.llm_client = self._initialize_llm()
         
         # 初始化搜索工具集
-        self.search_agency = BochaMultimodalSearch(api_key=(self.config.BOCHA_API_KEY or self.config.BOCHA_WEB_SEARCH_API_KEY))
+        self.search_agency = BochaMultimodalSearch(api_key=self.config.BOCHA_WEB_SEARCH_API_KEY)
         
         # 初始化节点
         self._initialize_nodes()
